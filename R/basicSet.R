@@ -11,7 +11,8 @@ basicSet<-function(text){
   simples<-data.frame(Sentiment=vader$compound,
                       Emotion=(vader$pos+vader$neg),
                       WordCt=wdct)
+    simples<-apply(simples,2,function(x) as.numeric(x))
   simples[is.na(simples)]=0
-  fs<-stats::poly(apply(simples,2,function(x) as.numeric(x)),degree=2)
+  fs<-stats::predict(DICE::polymodel,simples)
   return(fs)
 }

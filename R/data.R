@@ -1,4 +1,12 @@
 
+#' Polynomial pre-trained fit
+#'
+#' This calculates the polynomial projection of the simple features used during model training
+#'
+#' @format A pre-trained polynomial equation
+#'
+"polymodel"
+
 #' Pre-trained Intensity Detection Model (no politeness)
 #'
 #' This model was pre-trained on wikipedia editor discussions hand-labelled for conflict intensity.

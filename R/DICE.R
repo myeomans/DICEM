@@ -1,5 +1,3 @@
-utils::globalVariables(c("directModel","diceNGrams","intenseModel","directModel_basic","intenseModel_basic")) # prevent incorrect "no global binding" note
-
 #' DICE Model Scores
 #'
 #' @description Detects linguistic markers of politeness in natural language.
@@ -47,12 +45,16 @@ DICE<-function(text,
 
   diceX<-featureSet(text,parser=parser)
 
+  
   if(parser[1]=="spacy"){
-    intense<-stats::predict(intenseModel, newdata = diceX)
-    direct<-stats::predict(directModel, newdata = diceX)
+    #intenseModel<-xgboost::xgb.load(system.file("extdata", "intenseModelxgb") )
+    invisible(utils::capture.output(intense<-stats::predict(DICE::intenseModel, newdata = diceX), type = "message"))
+    invisible(utils::capture.output(direct<-stats::predict(DICE::directModel, newdata = diceX), type = "message"))
+    #suppressWarnings(intense<-stats::predict(intenseModel, newdata = diceX))
+    #suppressWarnings(direct<-stats::predict(directModel, newdata = diceX))
   } else{
-    intense<-stats::predict(intenseModel_basic, newdata = diceX)
-    direct<-stats::predict(directModel_basic, newdata = diceX)
+    suppressWarnings(intense<-stats::predict(DICE::intenseModel_basic, newdata = diceX))
+    suppressWarnings(direct<-stats::predict(DICE::directModel_basic, newdata = diceX))
   }
 
 
@@ -61,16 +63,3 @@ DICE<-function(text,
 
   return(DICEscores)
 }
-
-#diceModel<-readRDS("DICEmodel_basic.RDS")
-#
-# names(diceModel)
-#
-# intenseModel_basic<-diceModel$Intense_combo_XG
-# directModel_basic<-diceModel$Direct_combo_XG
-# save(intenseModel_basic,file="data/intenseModel_basic.rda")
-# save(directModel_basic,file="data/directModel_basic.rda")
-#
-# diceNGrams<-diceModel$xdata$ng
-#
-# save(diceNGrams,file="data/diceNGrams.rda")

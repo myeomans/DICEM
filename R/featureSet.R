@@ -1,5 +1,3 @@
-utils::globalVariables(c("diceNGrams")) # prevent incorrect "no global binding" note
-
 #' DICE Features
 #'
 #' @description Extracts feature sets to match pre-trained models
@@ -19,7 +17,7 @@ featureSet<-function(text,parser=c("none","spacy"),num_mc_cores=1){
 
   exNG<-doc2concrete::ngramTokens(text,
                                   ngrams=1:2,
-                                  vocabmatch = diceNGrams)
+                                  vocabmatch = DICE::diceNGrams)
 
   exBasic<-basicSet(text)
 

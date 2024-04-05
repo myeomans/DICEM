@@ -1,4 +1,6 @@
-Beta version of the DICE NLP model. 
+Beta version of the DICE NLP model. To install, run the following in R:
+
+devtools::install_github("https://github.com/myeomans/DICE")
 
 To analyse your text, use the main function like so:
 
