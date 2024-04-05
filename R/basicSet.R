@@ -1,0 +1,17 @@
+#' Basic Features
+#'
+#' @description Simple features as inputs to the DICE model
+#' @param text character A vector of texts, each of which will be tallied for DICE features.
+#'
+#'
+#'@export
+basicSet<-function(text){
+  wdct<-stringr::str_count(text,"[[:alpha:]]+")
+  vader<-vader::vader_df(text)
+  simples<-data.frame(Sentiment=vader$compound,
+                      Emotion=(vader$pos+vader$neg),
+                      WordCt=wdct)
+  simples[is.na(simples)]=0
+  fs<-stats::poly(apply(simples,2,function(x) as.numeric(x)),degree=2)
+  return(fs)
+}
