@@ -42,6 +42,10 @@ DICE<-function(text,
   if(uk_english){
     text<-usWords(text)
   }
+  if(length(text==1)){
+    filler<-1
+    text<-c(text,"filler")
+  }
 
   diceX<-featureSet(text,parser=parser)
 
@@ -61,5 +65,9 @@ DICE<-function(text,
 
   DICEscores=data.frame(intense,direct)
 
+  if(filler==1){
+    DICEscores<-DICEscores[1,]
+  }
+  
   return(DICEscores)
 }
