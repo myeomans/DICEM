@@ -7,45 +7,6 @@
 #'
 "polymodel"
 
-#' Pre-trained Intensity Detection Model (no politeness)
-#'
-#' This model was pre-trained on wikipedia editor discussions hand-labelled for conflict intensity.
-#'
-#' @format A pre-trained glmnet model
-#' @source Yeomans et al. (2024). A Natural Language Processing Model for Conflict Expression in Conversation
-#'
-"intenseModel_basic"
-
-
-#' Pre-trained Directness Detection Model (no politeness)
-#'
-#' This model was pre-trained on wikipedia editor discussions hand-labelled for conflict directness.
-#'
-#' @format A pre-trained glmnet model
-#' @source Yeomans et al. (2024). A Natural Language Processing Model for Conflict Expression in Conversation
-#'
-"directModel_basic"
-
-
-#' Pre-trained Intensity Detection Model
-#'
-#' This model was pre-trained on wikipedia editor discussions hand-labelled for conflict intensity.
-#'
-#' @format A pre-trained glmnet model
-#' @source Yeomans et al. (2024). A Natural Language Processing Model for Conflict Expression in Conversation
-#'
-"intenseModel"
-
-
-#' Pre-trained Directness Detection Model
-#'
-#' This model was pre-trained on wikipedia editor discussions hand-labelled for conflict directness.
-#'
-#' @format A pre-trained glmnet model
-#' @source Yeomans et al. (2024). A Natural Language Processing Model for Conflict Expression in Conversation
-#'
-"directModel"
-
 
 #' Pre-trained advice concreteness features
 #'

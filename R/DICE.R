@@ -51,17 +51,15 @@ DICE<-function(text,
 
   
   if(parser[1]=="spacy"){
-    #intenseModel<-xgboost::xgb.load(system.file("extdata", "intenseModelxgb") )
-    invisible(utils::capture.output(intense<-stats::predict(DICE::intenseModel, newdata = diceX), type = "message"))
-    invisible(utils::capture.output(direct<-stats::predict(DICE::directModel, newdata = diceX), type = "message"))
-    #suppressWarnings(intense<-stats::predict(intenseModel, newdata = diceX))
-    #suppressWarnings(direct<-stats::predict(directModel, newdata = diceX))
+    directModel<-xgboost::xgb.load(system.file("extdata", "directModelxgb.json", package="DICE") )
+    intenseModel<-xgboost::xgb.load(system.file("extdata", "intenseModelxgb.json", package="DICE") )
   } else{
-    suppressWarnings(intense<-stats::predict(DICE::intenseModel_basic, newdata = diceX))
-    suppressWarnings(direct<-stats::predict(DICE::directModel_basic, newdata = diceX))
+    directModel<-xgboost::xgb.load(system.file("extdata", "directModel_basicxgb.json", package="DICE") )
+    intenseModel<-xgboost::xgb.load(system.file("extdata", "intenseModel_basicxgb.json", package="DICE") )
   }
 
-
+  intense<-stats::predict(intenseModel, newdata = diceX)
+  direct<-stats::predict(directModel, newdata = diceX)
 
   DICEscores=data.frame(intense,direct)
 
