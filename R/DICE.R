@@ -42,13 +42,10 @@ DICE<-function(text,
   if(uk_english){
     text<-usWords(text)
   }
-  if(length(text==1)){
-    filler<-1
-    text<-c(text,"filler")
-  }
-
+  text<-c(text,"filler")
+  
   diceX<-featureSet(text,parser=parser)
-
+  
   
   if(parser[1]=="spacy"){
     directModel<-xgboost::xgb.load(system.file("extdata", "directModelxgb.json", package="DICE") )
@@ -57,15 +54,13 @@ DICE<-function(text,
     directModel<-xgboost::xgb.load(system.file("extdata", "directModel_basicxgb.json", package="DICE") )
     intenseModel<-xgboost::xgb.load(system.file("extdata", "intenseModel_basicxgb.json", package="DICE") )
   }
-
+  
   intense<-stats::predict(intenseModel, newdata = diceX)
   direct<-stats::predict(directModel, newdata = diceX)
-
+  
   DICEscores=data.frame(intense,direct)
-
-  if(filler==1){
-    DICEscores<-DICEscores[1,]
-  }
+  
+  DICEscores<-DICEscores[1:(nrow(DICEscores)-1),]
   
   return(DICEscores)
 }
