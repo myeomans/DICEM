@@ -17,7 +17,7 @@ featureSet<-function(text,parser=c("none","spacy"),num_mc_cores=1){
 
   exNG<-doc2concrete::ngramTokens(text,
                                   ngrams=1:2,
-                                  vocabmatch = DICE::diceNGrams)
+                                  vocabmatch = DICEM::diceNGrams)
 
   exBasic<-basicSet(text)
 

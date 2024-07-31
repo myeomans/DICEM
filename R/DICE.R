@@ -8,7 +8,7 @@
 #' @param num_mc_cores integer Number of cores for parallelization. Default is 1, but we encourage users to try parallel::detectCores() if possible.
 #' @details The best intensity model uses politeness features, which depend on part-of-speech tagged sentences (e.g. "bare commands" are a particular verb class).
 #'     To include these features in the analysis, a POS tagger must be initialized beforehand - we currently support SpaCy which must
-#'     be installed separately in Python (see example for implementation). If not, a simpler model can be used, though it is somewhat less acruate.
+#'     be installed separately in Python (see example for implementation). If not, a simpler model can be used, though it is somewhat less accruate.
 #' @return a data.frame of scores on directness and intensity.
 #' @references
 #'
@@ -19,7 +19,7 @@
 #'
 #' data("phone_offers")
 #'
-#' DICE(phone_offers$message, parser="none")
+#' DICE(phone_offers$message[1:20], parser="none")
 #'
 #'\dontrun{
 #'
@@ -48,11 +48,11 @@ DICE<-function(text,
   
   
   if(parser[1]=="spacy"){
-    directModel<-xgboost::xgb.load(system.file("extdata", "directModelxgb.json", package="DICE") )
-    intenseModel<-xgboost::xgb.load(system.file("extdata", "intenseModelxgb.json", package="DICE") )
+    directModel<-xgboost::xgb.load(system.file("extdata", "directModelxgb.json", package="DICEM") )
+    intenseModel<-xgboost::xgb.load(system.file("extdata", "intenseModelxgb.json", package="DICEM") )
   } else{
-    directModel<-xgboost::xgb.load(system.file("extdata", "directModel_basicxgb.json", package="DICE") )
-    intenseModel<-xgboost::xgb.load(system.file("extdata", "intenseModel_basicxgb.json", package="DICE") )
+    directModel<-xgboost::xgb.load(system.file("extdata", "directModel_basicxgb.json", package="DICEM") )
+    intenseModel<-xgboost::xgb.load(system.file("extdata", "intenseModel_basicxgb.json", package="DICEM") )
   }
   
   intense<-stats::predict(intenseModel, newdata = diceX)

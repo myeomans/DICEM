@@ -13,6 +13,6 @@ basicSet<-function(text){
                       WordCt=wdct)
     simples<-apply(simples,2,function(x) as.numeric(x))
   simples[is.na(simples)]=0
-  fs<-stats::predict(DICE::polymodel,simples)
+  fs<-stats::predict(DICEM::polymodel,simples)
   return(fs)
 }

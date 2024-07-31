@@ -25,13 +25,13 @@ Detects linguistic markers of politeness in natural language.
 \details{
 The best intensity model uses politeness features, which depend on part-of-speech tagged sentences (e.g. "bare commands" are a particular verb class).
     To include these features in the analysis, a POS tagger must be initialized beforehand - we currently support SpaCy which must
-    be installed separately in Python (see example for implementation). If not, a simpler model can be used, though it is somewhat less acruate.
+    be installed separately in Python (see example for implementation). If not, a simpler model can be used, though it is somewhat less accruate.
 }
 \examples{
 
 data("phone_offers")
 
-DICE(phone_offers$message, parser="none")
+DICE(phone_offers$message[1:20], parser="none")
 
 \dontrun{
 

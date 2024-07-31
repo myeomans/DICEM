@@ -5,7 +5,7 @@
 #' @keywords internal
 usWords<-function(text){
   toks <- quanteda::tokens(text)
-  tokUS<-quanteda::tokens_lookup(toks, DICE::uk2us,
+  tokUS<-quanteda::tokens_lookup(toks, DICEM::uk2us,
                                  exclusive = FALSE,capkeys = FALSE)
   sentUS<-unlist(lapply(tokUS,paste, collapse=" "),use.names = FALSE)
   return(sentUS)

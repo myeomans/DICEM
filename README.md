@@ -1,4 +1,4 @@
-Beta version of the DICE NLP model. To install, run the following in R:
+Beta version of the DICE-M natural language processing model. To install, run the following in R:
 
 > devtools::install_github("https://github.com/myeomans/DICE")
 
