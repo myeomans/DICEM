@@ -19,7 +19,7 @@
 #'
 #' data("phone_offers")
 #'
-#' DICE(phone_offers$message[1:20], parser="none")
+#' DICE(phone_offers$message[1:10], parser="none")
 #'
 #'\dontrun{
 #'
@@ -27,7 +27,8 @@
 #' DICE(phone_offers$message, num_mc_cores=parallel::detectCores())
 #'
 #' # Connect to SpaCy installation for part-of-speech features
-#' install.packages("spacyr")
+#' # THIS REQUIRES SPACY INSTALLATION OUTSIDE OF R
+#' # For some machines, spacyr::spacy_install() will work, but please confirm before running
 #' spacyr::spacy_initialize(python_executable = PYTHON_PATH)
 #' DICE(phone_offers$message, parser="spacy")
 #'}

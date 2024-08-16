@@ -6,7 +6,7 @@ Authors@R: person(given = "Michael",
              family = "Yeomans",
              role = c("aut", "cre"),
              email = "mk.yeomans@gmail.com")
-Description: A Natural Language Processing Model trained to detect directness and intensity during conflict.
+Description: A Natural Language Processing Model trained to detect directness and intensity during conflict. See <http://www.mikeyeomans.info>.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -21,5 +21,6 @@ Imports:
     xgboost
 RoxygenNote: 7.3.1
 Suggests: knitr,
+    spacyr,
     rmarkdown,
     testthat

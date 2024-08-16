@@ -2,7 +2,8 @@
 #'
 #' @description Simple features as inputs to the DICE model
 #' @param text character A vector of texts, each of which will be tallied for DICE features.
-#'
+#' @details The DICE models use, as features, linear and quadratic terms for sentiment, emotion, and word count. 
+#' @return a data.frame of feature scores for the pre-trained models.
 #'
 #'@export
 basicSet<-function(text){

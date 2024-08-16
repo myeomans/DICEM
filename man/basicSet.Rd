@@ -9,6 +9,12 @@ basicSet(text)
 \arguments{
 \item{text}{character A vector of texts, each of which will be tallied for DICE features.}
 }
+\value{
+a data.frame of feature scores for the pre-trained models.
+}
 \description{
 Simple features as inputs to the DICE model
+}
+\details{
+The DICE models use, as features, linear and quadratic terms for sentiment, emotion, and word count.
 }
